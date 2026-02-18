@@ -1,25 +1,25 @@
 # smart-fhir-token-broker-rs
 
-Stub for a Rust service implementing SMART-on-FHIR token brokering for internal healthcare integrations.
+Rust service implementing SMART-on-FHIR token brokering for internal healthcare integrations.
 
 ## Why
 This service centralizes OAuth2/SMART token exchange and validation so downstream tools can avoid duplicating auth logic.
 
-## Features - To Be Implemented
+## Features
 - SMART authorization code exchange
 - Refresh token flow
 - Token validation/introspection endpoint
 - Scope enforcement middleware
 - Structured logging and typed errors
 
-## Planned Architecture
+## Architecture
 - `handlers`: HTTP routes
 - `services`: SMART/OAuth business logic
 - `middleware`: scope checks, request metadata
 - `models`: request/response and error types
 - `config`: typed app configuration
 
-## API (STUBS)
+## API
 ### `POST /token/exchange`
 Exchange SMART auth code for access token.
 
