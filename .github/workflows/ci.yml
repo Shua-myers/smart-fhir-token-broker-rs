@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -9,10 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - name: fmt
+      - name: Cache dependencies to speedup workflow
+        uses: Swatinem/rust-cache@v2
+      - name: Install stable rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Code formatting 
         run: cargo fmt --all -- --check
-      - name: clippy
+      - name: Code linting
         run: cargo clippy --all-targets --all-features -- -D warnings
-      - name: test
+      - name: Run all tests
         run: cargo test --all-features

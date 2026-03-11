@@ -2,6 +2,7 @@ use serde::Deserialize;
 use std::env;
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 pub struct Config {
     pub server_port: u16,
     pub server_host: String,
